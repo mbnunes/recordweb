@@ -18,7 +18,7 @@ Os scripts são baseados em **Playwright + rrweb**, e permitem capturar um `JSON
 
 ```bash
 git clone https://github.com/seuusuario/rrweb-recaptcha-capture.git
-cd rrweb-recaptcha-capture
+cd recordweb
 
 npm init -y
 npm install playwright rrweb fs
@@ -40,18 +40,18 @@ npm install playwright rrweb fs
 
 ## 🚀 1. Gravando o site
 
-O script `record_ap_getran.js` abre a página desejada e **grava todas as mutações DOM, cliques, inputs e atualizações do reCAPTCHA invisível**.
+O script `record_web.js` abre a página desejada e **grava todas as mutações DOM, cliques, inputs e atualizações do reCAPTCHA invisível**.
 
 ### 🧩 Passos
 
 1. Edite o arquivo e troque a URL da página desejada:
    ```js
-   const url = "https://seusite.com/formulario";
+   cconst TARGET_URL = 'SUA_URL';
    ```
 
 2. Execute:
    ```bash
-   node record_ap_getran.js
+   node record_web.js
    ```
 
 3. O terminal exibirá logs como:
@@ -74,14 +74,14 @@ Esse arquivo contém todos os eventos DOM e mutações ocorridas durante a sess�
 
 ## 🔍 2. Analisando o arquivo
 
-O script `find_rrweg.js` analisa o JSON gerado pelo passo anterior e procura pelo conteúdo relacionado ao **reCAPTCHA**.
+O script `find_rrweg_node.js` analisa o JSON gerado pelo passo anterior e procura pelo conteúdo relacionado ao **reCAPTCHA**.
 
 Ele mostra o **id**, **name** e **text/value** de todos os nós DOM relevantes.
 
 ### 🧩 Como executar:
 
 ```bash
-node find_rrweg.js rrweb_capture_1731352643513.json
+node find_rrweg_node.js recordings/rrweb_capture_1731352643513.json
 ```
 
 ### 📋 Saída de exemplo:
@@ -109,10 +109,10 @@ Se houver múltiplos tokens capturados, todos serão listados com seus respectiv
 
 ```
 .
-├── record_ap_getran.js   # Grava a interação do site
-├── find_rrweg.js         # Analisa o JSON gerado
+├── record_web.js   # Grava a interação do site
+├── find_rrweg_node.js         # Analisa o JSON gerado
 ├── package.json
-└── rrweb_capture_*.json  # Arquivos de captura
+└── recordings/rrweb_capture_*.json  # Arquivos de captura
 ```
 
 ---
