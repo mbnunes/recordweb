@@ -1,4 +1,4 @@
-# 🧠 rrweb + reCAPTCHA Capture Automation
+# 🧠 recordweb
 
 Este projeto demonstra como **gravar interações reais em uma página web**, incluindo mutações dinâmicas do DOM, e **detectar automaticamente quando o reCAPTCHA invisível é resolvido** (por exemplo, quando o `g-recaptcha-response` é atualizado de forma oculta).
 
