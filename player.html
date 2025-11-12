@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Replay rrweb</title>
+  <script src="https://unpkg.com/rrweb@latest/dist/rrweb.min.js"></script>
+  <script src="https://unpkg.com/rrweb-player@latest/dist/index.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/rrweb-player@latest/dist/style.css" />
+</head>
+<body>
+  <h3>rrweb player</h3>
+  <div id="player"></div>
+
+  <script>
+    async function loadAndPlay() {
+      // carregue o json salvo (se estiver no mesmo diretório)
+      const res = await fetch('rrweb_record.json'); // ajuste o caminho conforme necessário
+      const events = await res.json();
+      // cria o player
+      new rrwebPlayer({
+        target: document.getElementById('player'),
+        props: {
+          events,
+          showController: true
+        }
+      });
+    }
+    loadAndPlay().catch(console.error);
+  </script>
+</body>
+</html>
